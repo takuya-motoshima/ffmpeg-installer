@@ -25,9 +25,9 @@ if [ $cmake_major_version -lt 3 -o \( $cmake_major_version -eq 3 -a $cmake_minor
   echo "old CMake version $cmake_version found, a new one must be used"
   sudo yum -y remove cmake;
   cd ~;
-  wget https://cmake.org/files/v3.16/cmake-3.16.0.tar.gz;
-  tar -xvzf cmake-3.16.0.tar.gz;
-  cd cmake-3.16.0;
+  wget https://cmake.org/files/v3.16/cmake-3.14.3.tar.gz;
+  tar -xvzf cmake-3.14.3.tar.gz;
+  cd cmake-3.14.3;
   ./bootstrap;
   make;
   sudo make install;
