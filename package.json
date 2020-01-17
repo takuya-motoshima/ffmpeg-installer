@@ -1,0 +1,33 @@
+{
+  "name": "ffmpeg-installer",
+  "version": "1.0.0",
+  "description": "This is a shell script that automatically installs FFmpeg.",
+  "directories": {
+    "bin": "bin",
+    "example": "examples",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/takuya-motoshima/ffmpeg-installer.git"
+  },
+  "keywords": [
+    "node.js",
+    "node",
+    "nodejs",
+    "ffmpeg",
+    "installer",
+    "install",
+    "typescript",
+    "shell"
+  ],
+  "author": "Takuya Motoshima <developer.takuyamotoshima@gmail.com> (https://twitter.com/taaaaaaakuya)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/takuya-motoshima/ffmpeg-installer/issues"
+  },
+  "homepage": "https://github.com/takuya-motoshima/ffmpeg-installer#readme"
+}

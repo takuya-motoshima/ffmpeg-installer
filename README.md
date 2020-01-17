@@ -70,6 +70,12 @@ Reference: https://github.com/yihui/animation/issues/74
 ffmpeg -framerate 1 -i input_%04d.png -vcodec libx264 -pix_fmt yuv420p -r 60 output.mp4;
 ```
 
+## Node.js examples
+
+- Convert serial images to video
+
+./examples/nodejs/convert-image-to-video.js
+
 ## License
 MIT - see [License file](LICENSE.txt).
 
