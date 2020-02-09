@@ -3,7 +3,7 @@ const { createReadStream, createWriteStream } = require('fs');
 
 (async () => {
 
-  const outputFile = 'outputs/output.mp4';
+  const outputFile = 'outputs/output.gif';
   const outputFrameRate = 60;
   const inputFrameRate = 10;
   const inputFiles = [
@@ -29,8 +29,7 @@ const { createReadStream, createWriteStream } = require('fs');
 
   // output to file
   converter.createOutputToFile(outputFile, {
-    vcodec: 'libx264',
-    pix_fmt: 'yuv420p',
+    vf: 'scale=512:-1',
     r: outputFrameRate
   });
 

@@ -34,12 +34,12 @@ ffmpeg -i input.mp4 -vf fps=1 output_%d.png;
 ```
 - Output one image every minute:  
 ```
-ffmpeg -i test.mp4 -vf fps=1/60 output_%04d.png
+ffmpeg -i input.mp4 -vf fps=1/60 output_%04d.png
 ```
 
 - Output one image every 10 minutes:  
 ```
-ffmpeg -i test.mp4 -vf fps=1/600 output_%04d.png
+ffmpeg -i input.mp4 -vf fps=1/600 output_%04d.png
 ```
 
 ### Convert images to mp4
@@ -92,6 +92,7 @@ ffmpeg -i test.mp4 -vf fps=1/600 output_%04d.png
 |Description|Example file|
 |--|--|
 |Convert images to mp4|./examples/nodejs/convert-image-to-mp4.js|
+|Convert images to GIF|./examples/nodejs/convert-image-to-gif.js|
 
 ## License
 MIT - see [License file](LICENSE.txt).
