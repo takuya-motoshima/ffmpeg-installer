@@ -90,7 +90,8 @@ make install
 
 # Install Opus encoder
 cd ~/ffmpeg_sources
-git clone http://git.opus-codec.org/opus.git
+# git clone http://git.opus-codec.org/opus.git
+git clone https://github.com/xiph/opus.git
 cd opus
 autoreconf -fiv
 ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
