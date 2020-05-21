@@ -56,11 +56,14 @@ make install
 
 # Install x264 encoder
 cd ~/ffmpeg_sources
-git clone --depth 1 git://git.videolan.org/x264
+#git clone --depth 1 git://git.videolan.org/x264
+git clone https://code.videolan.org/videolan/x264.git
 cd x264
 PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static
 make
 make install
+#ライブラリを一度更新
+sudo ldconfig
 
 # Install x265 encoder
 cd ~/ffmpeg_sources
@@ -136,10 +139,11 @@ make install
 # Install vid
 cd ~/ffmpeg_sources
 git clone https://github.com/georgmartius/vid.stab
-cd vid.stab
-cmake .
-make && sudo make install
-export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
+mkdir vid_build
+cd vid_build
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED=off -DENABLE_NASM=on ../vid.stab
+make
+sudo make install
 
 # Install FFmpeg
 cd ~/ffmpeg_sources
