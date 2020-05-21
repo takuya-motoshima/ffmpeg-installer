@@ -62,8 +62,6 @@ cd x264
 PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static
 make
 make install
-#ライブラリを一度更新
-sudo ldconfig
 
 # Install x265 encoder
 cd ~/ffmpeg_sources
@@ -143,7 +141,10 @@ mkdir vid_build
 cd vid_build
 cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED=off -DENABLE_NASM=on ../vid.stab
 make
-sudo make install
+make install
+
+#ライブラリを一度更新
+sudo ldconfig
 
 # Install FFmpeg
 cd ~/ffmpeg_sources
