@@ -56,7 +56,8 @@ make install
 
 # Install x264 encoder
 cd ~/ffmpeg_sources
-git clone --depth 1 git://git.videolan.org/x264
+#git clone --depth 1 git://git.videolan.org/x264
+git clone https://code.videolan.org/videolan/x264.git
 cd x264
 PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --bindir="$HOME/bin" --enable-static
 make
@@ -90,7 +91,8 @@ make install
 
 # Install Opus encoder
 cd ~/ffmpeg_sources
-git clone http://git.opus-codec.org/opus.git
+# git clone http://git.opus-codec.org/opus.git
+git clone https://github.com/xiph/opus.git
 cd opus
 autoreconf -fiv
 ./configure --prefix="$HOME/ffmpeg_build" --disable-shared
@@ -132,11 +134,23 @@ cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_S
 make
 make install
 
+# Install vid
+cd ~/ffmpeg_sources
+git clone https://github.com/georgmartius/vid.stab
+mkdir vid_build
+cd vid_build
+cmake -G "Unix Makefiles" -DCMAKE_INSTALL_PREFIX="$HOME/ffmpeg_build" -DENABLE_SHARED=off -DENABLE_NASM=on ../vid.stab
+make
+make install
+
+#ライブラリを一度更新
+sudo ldconfig
+
 # Install FFmpeg
 cd ~/ffmpeg_sources
 git clone http://source.ffmpeg.org/git/ffmpeg.git
 cd ffmpeg
-PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig:$HOME/ffmpeg_build/lib64/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --extra-cflags="-I$HOME/ffmpeg_build/include" --extra-ldflags="-L$HOME/ffmpeg_build/lib" --bindir="$HOME/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopus --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-libaom --extra-libs=-lpthread --extra-libs=-lm
+PKG_CONFIG_PATH="$HOME/ffmpeg_build/lib/pkgconfig:$HOME/ffmpeg_build/lib64/pkgconfig" ./configure --prefix="$HOME/ffmpeg_build" --extra-cflags="-I$HOME/ffmpeg_build/include" --extra-ldflags="-L$HOME/ffmpeg_build/lib" --bindir="$HOME/bin" --pkg-config-flags="--static" --enable-gpl --enable-nonfree --enable-libfdk-aac --enable-libfreetype --enable-libmp3lame --enable-libopus --enable-libvorbis --enable-libvpx --enable-libx264 --enable-libx265 --enable-libaom --extra-libs=-lpthread --extra-libs=-lm --enable-libvidstab
 make
 make install
 hash -r
